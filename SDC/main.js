@@ -7,7 +7,7 @@ const carCtx=carCanvas.getContext("2d");
 const nwCtx=nwCanvas.getContext("2d");
 const road= new Road(carCanvas.width/2, carCanvas.width*0.9);
 
-const N=1;
+const N=1;                      // Increase the N value for model training (mostly start from 300)
 const cars=generateCars(N);
 let bestCar=cars[0];
 if(localStorage.getItem("bestBrain")){
@@ -17,7 +17,7 @@ if(localStorage.getItem("bestBrain")){
             localStorage.getItem("bestBrain")
         );
         if(i!=0){
-            NeuralNetwork.mutate(cars[i].brain,0.1);
+            NeuralNetwork.mutate(cars[i].brain,0.1);    // Increase or decrease the 0.1 value accordingly to train the model (change by 0.1 for each training)
         }
     }
 }
